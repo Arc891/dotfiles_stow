@@ -1,0 +1,4 @@
+#!/bin/bash
+
+sed -i '1i\Test' $HOME/.config/hypr/hyprland.conf
+sed -i '/Test/d' $HOME/.config/hypr/hyprland.conf

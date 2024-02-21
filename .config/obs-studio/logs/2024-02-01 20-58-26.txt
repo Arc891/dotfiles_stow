@@ -1,0 +1,241 @@
+20:58:26.600: Platform: Wayland
+20:58:26.600: CPU Name: AMD Ryzen 7 PRO 7840U w/ Radeon 780M Graphics
+20:58:26.600: CPU Speed: 1754.830MHz
+20:58:26.600: Physical Cores: 8, Logical Cores: 16
+20:58:26.600: Physical Memory: 30783MB Total, 26468MB Free
+20:58:26.600: Kernel Version: Linux 6.7.2-arch1-2
+20:58:26.600: Distribution: "Arch Linux" Unknown
+20:58:26.600: Desktop Environment: Hyprland (Hyprland)
+20:58:26.600: Session Type: wayland
+20:58:26.603: Qt Version: 6.6.1 (runtime), 6.6.1 (compiled)
+20:58:26.603: Portable mode: false
+20:58:26.622: OBS 30.0.2-3 (linux)
+20:58:26.622: ---------------------------------
+20:58:26.622: ---------------------------------
+20:58:26.622: audio settings reset:
+20:58:26.622: 	samples per sec: 48000
+20:58:26.622: 	speakers:        2
+20:58:26.622: 	max buffering:   960 milliseconds
+20:58:26.622: 	buffering type:  dynamically increasing
+20:58:26.624: ---------------------------------
+20:58:26.624: Initializing OpenGL...
+20:58:26.624: Using EGL/Wayland
+20:58:26.678: Initialized EGL 1.5
+20:58:26.691: Loading up OpenGL on adapter AMD AMD Radeon Graphics (radeonsi, gfx1103_r1, LLVM 16.0.6, DRM 3.56, 6.7.2-arch1-2)
+20:58:26.691: OpenGL loaded successfully, version 4.6 (Core Profile) Mesa 23.3.5-arch1.1, shading language 4.60
+20:58:26.713: ---------------------------------
+20:58:26.713: video settings reset:
+20:58:26.713: 	base resolution:   1920x1080
+20:58:26.713: 	output resolution: 1920x1080
+20:58:26.713: 	downscale filter:  Bicubic
+20:58:26.713: 	fps:               60/1
+20:58:26.713: 	format:            NV12
+20:58:26.713: 	YUV mode:          Rec. 709/Partial
+20:58:26.715: NV12 texture support not available
+20:58:26.715: P010 texture support not available
+20:58:26.721: Audio monitoring device:
+20:58:26.721: 	name: Default
+20:58:26.721: 	id: default
+20:58:26.721: ---------------------------------
+20:58:26.731: Failed to load 'en-US' text for module: 'decklink-captions.so'
+20:58:26.740: Failed to load 'en-US' text for module: 'decklink-output-ui.so'
+20:58:26.746: A DeckLink iterator could not be created.  The DeckLink drivers may not be installed
+20:58:26.746: Failed to initialize module 'decklink.so'
+20:58:26.875: [pipewire] Available captures:
+20:58:26.876: [pipewire]     - Desktop capture
+20:58:26.876: [pipewire]     - Window capture
+20:58:26.897: v4l2loopback not installed, virtual camera disabled
+20:58:26.943: VAAPI: Failed to initialize display in vaapi_device_h264_supported
+20:58:26.943: FFmpeg VAAPI H264 encoding not supported
+20:58:26.943: VAAPI: Failed to initialize display in vaapi_device_hevc_supported
+20:58:26.943: FFmpeg VAAPI HEVC encoding not supported
+20:58:27.039: ---------------------------------
+20:58:27.039:   Loaded Modules:
+20:58:27.039:     text-freetype2.so
+20:58:27.039:     rtmp-services.so
+20:58:27.039:     obs-x264.so
+20:58:27.039:     obs-webrtc.so
+20:58:27.039:     obs-vst.so
+20:58:27.039:     obs-transitions.so
+20:58:27.039:     obs-qsv11.so
+20:58:27.039:     obs-outputs.so
+20:58:27.039:     obs-libfdk.so
+20:58:27.039:     obs-filters.so
+20:58:27.039:     obs-ffmpeg.so
+20:58:27.039:     linux-v4l2.so
+20:58:27.039:     linux-pulseaudio.so
+20:58:27.039:     linux-pipewire.so
+20:58:27.039:     linux-jack.so
+20:58:27.039:     linux-capture.so
+20:58:27.039:     linux-alsa.so
+20:58:27.039:     image-source.so
+20:58:27.039:     frontend-tools.so
+20:58:27.039:     decklink-output-ui.so
+20:58:27.039:     decklink-captions.so
+20:58:27.039: ---------------------------------
+20:58:27.039: ==== Startup complete ===============================================
+20:58:27.075: All scene data cleared
+20:58:27.075: ------------------------------------------------
+20:58:27.080: pulse-input: Server name: 'PulseAudio (on PipeWire 1.0.2) 15.0.0'
+20:58:27.080: pulse-input: Audio format: s32le, 48000 Hz, 2 channels
+20:58:27.080: pulse-input: Started recording from 'alsa_output.pci-0000_64_00.6.HiFi__hw_Generic__sink.monitor' (default)
+20:58:27.080: [Loaded global audio device]: 'Desktop Audio'
+20:58:27.081: pulse-input: Server name: 'PulseAudio (on PipeWire 1.0.2) 15.0.0'
+20:58:27.081: pulse-input: Audio format: s32le, 48000 Hz, 2 channels
+20:58:27.081: pulse-input: Started recording from 'alsa_input.pci-0000_64_00.6.HiFi__hw_acp63__source' (default)
+20:58:27.081: [Loaded global audio device]: 'Mic/Aux'
+20:58:27.082: v4l2-input: Start capture from /dev/video0
+20:58:27.083: v4l2-input: Input: 0
+20:58:27.086: v4l2-input: Resolution: 640x480
+20:58:27.086: v4l2-input: Pixelformat: BGR3
+20:58:27.086: v4l2-input: Linesize: 1920 Bytes
+20:58:27.086: v4l2-input: Framerate: 30.00 fps
+20:58:27.087: v4l2-input: /dev/video0: select timeout set to 166666 (5x frame periods)
+20:58:27.088: PipeWire initialized
+20:58:27.088: PipeWire initialized
+20:58:27.089: Switched to scene 'Scene'
+20:58:27.089: ------------------------------------------------
+20:58:27.089: Loaded scenes:
+20:58:27.089: - scene 'Scene':
+20:58:27.089:     - source: 'Video Capture Device (V4L2)' (v4l2_input)
+20:58:27.089:     - source: 'eDP-1' (pipewire-desktop-capture-source)
+20:58:27.089:     - source: 'Chrome' (pipewire-window-capture-source)
+20:58:27.089: ------------------------------------------------
+20:58:27.124: [pipewire] Screencast session created
+20:58:27.124: [pipewire] Screencast session created
+20:58:27.711: adding 21 milliseconds of audio buffering, total audio buffering is now 21 milliseconds (source: Desktop Audio)
+20:58:27.711: 
+20:58:28.774: [pipewire] Asking for desktop
+20:58:29.561: [pipewire] Asking for window
+20:58:29.563: [pipewire] desktop selected, setting up screencast
+20:58:29.564: [pipewire] window selected, setting up screencast
+20:58:29.568: [pipewire] Server version: 1.0.2
+20:58:29.568: [pipewire] Library version: 1.0.2
+20:58:29.568: [pipewire] Header version: 1.0.1
+20:58:29.568: [pipewire] Created stream 0x57bd9d341ea0
+20:58:29.568: [pipewire] Stream 0x57bd9d341ea0 state: "connecting" (error: none)
+20:58:29.568: [pipewire] Playing stream 0x57bd9d341ea0
+20:58:29.599: [pipewire] Stream 0x57bd9d341ea0 state: "paused" (error: none)
+20:58:29.601: [pipewire] Server version: 1.0.2
+20:58:29.601: [pipewire] Negotiated format:
+20:58:29.601: [pipewire] Library version: 1.0.2
+20:58:29.601: [pipewire]     Format: 8 (Spa:Enum:VideoFormat:BGRx)
+20:58:29.601: [pipewire] Header version: 1.0.1
+20:58:29.601: [pipewire]     Modifier: 0x0
+20:58:29.601: [pipewire]     Size: 1920x1200
+20:58:29.601: [pipewire]     Framerate: 0/1
+20:58:29.601: [pipewire] Created stream 0x57bd9d377760
+20:58:29.601: [pipewire] Stream 0x57bd9d377760 state: "connecting" (error: none)
+20:58:29.601: [pipewire] Playing stream 0x57bd9d377760
+20:58:29.601: [pipewire] Negotiated format:
+20:58:29.601: [pipewire]     Format: 8 (Spa:Enum:VideoFormat:BGRx)
+20:58:29.601: [pipewire]     Modifier: 0x0
+20:58:29.601: [pipewire]     Size: 1920x1200
+20:58:29.601: [pipewire] Stream 0x57bd9d377760 state: "paused" (error: none)
+20:58:29.601: [pipewire]     Framerate: 0/1
+20:58:29.602: [pipewire] Stream 0x57bd9d341ea0 state: "streaming" (error: none)
+20:58:29.603: [pipewire] Negotiated format:
+20:58:29.603: [pipewire]     Format: 8 (Spa:Enum:VideoFormat:BGRx)
+20:58:29.603: [pipewire]     Modifier: 0x0
+20:58:29.603: [pipewire]     Size: 1920x1200
+20:58:29.603: [pipewire]     Framerate: 0/1
+20:58:29.603: [pipewire] Negotiated format:
+20:58:29.603: [pipewire]     Format: 8 (Spa:Enum:VideoFormat:BGRx)
+20:58:29.603: [pipewire]     Modifier: 0x0
+20:58:29.603: [pipewire]     Size: 1920x1200
+20:58:29.603: [pipewire]     Framerate: 0/1
+20:58:29.604: [pipewire] Stream 0x57bd9d377760 state: "streaming" (error: none)
+20:58:37.092: v4l2-input: /dev/video3 seems to not support video capture
+20:58:37.092: v4l2-input: /dev/video1 seems to not support video capture
+20:58:37.092: v4l2-input: Found device 'Integrated Camera: Integrated I' at /dev/video2
+20:58:37.092: v4l2-input: Found device 'Integrated Camera: Integrated C' at /dev/video0
+20:58:37.093: v4l2-input: Stepwise and Continuous framerates are currently hardcoded
+20:58:37.093: v4l2-input: Stepwise and Continuous framerates are currently hardcoded
+20:58:37.093: v4l2-input: Pixelformat: Motion-JPEG (available)
+20:58:37.093: v4l2-input: Pixelformat: YUYV 4:2:2 (available)
+20:58:37.093: v4l2-input: Pixelformat: RGB3 (Emulated) (unavailable)
+20:58:37.093: v4l2-input: Pixelformat: BGR3 (Emulated) (available)
+20:58:37.093: v4l2-input: Pixelformat: YU12 (Emulated) (available)
+20:58:37.093: v4l2-input: Pixelformat: YV12 (Emulated) (available)
+20:58:37.094: v4l2-input: Stepwise and Continuous framerates are currently hardcoded
+20:58:37.094: v4l2-input: Found input 'Camera 1' (Index 0)
+20:58:37.094: v4l2-controls: setting default for Power Line Frequency to 1
+20:58:37.094: v4l2-controls: setting default for Auto Exposure to 3
+20:58:37.094: v4l2-input: Pixelformat: Motion-JPEG (available)
+20:58:37.094: v4l2-input: Pixelformat: YUYV 4:2:2 (available)
+20:58:37.094: v4l2-input: Pixelformat: RGB3 (Emulated) (unavailable)
+20:58:37.094: v4l2-input: Pixelformat: BGR3 (Emulated) (available)
+20:58:37.094: v4l2-input: Pixelformat: YU12 (Emulated) (available)
+20:58:37.094: v4l2-input: Pixelformat: YV12 (Emulated) (available)
+20:58:37.094: v4l2-input: Stepwise and Continuous framerates are currently hardcoded
+20:58:39.013: v4l2-input: Found input 'Camera 9' (Index 0)
+20:58:39.014: v4l2-input: Pixelformat: 8-bit Greyscale (unavailable)
+20:58:39.014: v4l2-input: Pixelformat: RGB3 (Emulated) (unavailable)
+20:58:39.014: v4l2-input: Pixelformat: BGR3 (Emulated) (available)
+20:58:39.014: v4l2-input: Pixelformat: YU12 (Emulated) (available)
+20:58:39.014: v4l2-input: Pixelformat: YV12 (Emulated) (available)
+20:58:39.014: v4l2-input: Stepwise and Continuous framerates are currently hardcoded
+20:58:39.036: v4l2-input: /dev/video0: Stopped capture after 162 frames
+20:58:39.071: v4l2-input: Start capture from /dev/video2
+20:58:39.072: v4l2-input: Input: 0
+20:58:39.075: v4l2-input: Resolution: 640x360
+20:58:39.075: v4l2-input: Pixelformat: BGR3
+20:58:39.075: v4l2-input: Linesize: 1920 Bytes
+20:58:39.075: v4l2-input: Framerate: 15.00 fps
+20:58:39.075: v4l2-input: /dev/video2: select timeout set to 333333 (5x frame periods)
+20:58:42.810: v4l2-input: Stepwise and Continuous framerates are currently hardcoded
+20:58:42.831: v4l2-input: /dev/video2: Stopped capture after 107 frames
+20:58:42.868: v4l2-input: Start capture from /dev/video2
+20:58:42.868: v4l2-input: Input: 0
+20:58:42.871: v4l2-input: Resolution: 640x360
+20:58:42.871: v4l2-input: Pixelformat: YU12
+20:58:42.871: v4l2-input: Linesize: 640 Bytes
+20:58:42.871: v4l2-input: Framerate: 15.00 fps
+20:58:42.871: v4l2-input: /dev/video2: select timeout set to 333333 (5x frame periods)
+20:58:44.029: v4l2-input: Stepwise and Continuous framerates are currently hardcoded
+20:58:44.067: v4l2-input: /dev/video2: Stopped capture after 30 frames
+20:58:44.103: v4l2-input: Start capture from /dev/video2
+20:58:44.104: v4l2-input: Input: 0
+20:58:44.107: v4l2-input: Resolution: 640x360
+20:58:44.107: v4l2-input: Pixelformat: BGR3
+20:58:44.107: v4l2-input: Linesize: 1920 Bytes
+20:58:44.107: v4l2-input: Framerate: 15.00 fps
+20:58:44.107: v4l2-input: /dev/video2: select timeout set to 333333 (5x frame periods)
+20:58:45.536: v4l2-input: Stepwise and Continuous framerates are currently hardcoded
+20:58:45.567: v4l2-input: /dev/video2: Stopped capture after 38 frames
+20:58:45.605: v4l2-input: Start capture from /dev/video2
+20:58:45.606: v4l2-input: Input: 0
+20:58:45.609: v4l2-input: Resolution: 640x360
+20:58:45.609: v4l2-input: Pixelformat: YV12
+20:58:45.609: v4l2-input: Linesize: 640 Bytes
+20:58:45.609: v4l2-input: Framerate: 15.00 fps
+20:58:45.609: v4l2-input: /dev/video2: select timeout set to 333333 (5x frame periods)
+20:58:47.798: v4l2-input: Stepwise and Continuous framerates are currently hardcoded
+20:58:47.835: v4l2-input: /dev/video2: Stopped capture after 61 frames
+20:58:47.870: v4l2-input: Start capture from /dev/video2
+20:58:47.872: v4l2-input: Input: 0
+20:58:47.875: v4l2-input: Resolution: 640x360
+20:58:47.875: v4l2-input: Pixelformat: BGR3
+20:58:47.875: v4l2-input: Linesize: 1920 Bytes
+20:58:47.875: v4l2-input: Framerate: 15.00 fps
+20:58:47.875: v4l2-input: /dev/video2: select timeout set to 333333 (5x frame periods)
+20:58:59.472: [pipewire] Stream 0x57bd9d377760 state: "paused" (error: none)
+20:59:32.099: v4l2-input: /dev/video3 seems to not support video capture
+20:59:32.099: v4l2-input: /dev/video1 seems to not support video capture
+20:59:32.099: v4l2-input: Found device 'Integrated Camera: Integrated I' at /dev/video2
+20:59:32.099: v4l2-input: Found device 'Integrated Camera: Integrated C' at /dev/video0
+20:59:32.100: v4l2-input: Stepwise and Continuous framerates are currently hardcoded
+20:59:32.100: v4l2-input: Stepwise and Continuous framerates are currently hardcoded
+20:59:32.100: v4l2-input: Pixelformat: 8-bit Greyscale (unavailable)
+20:59:32.100: v4l2-input: Pixelformat: RGB3 (Emulated) (unavailable)
+20:59:32.100: v4l2-input: Pixelformat: BGR3 (Emulated) (available)
+20:59:32.100: v4l2-input: Pixelformat: YU12 (Emulated) (available)
+20:59:32.100: v4l2-input: Pixelformat: YV12 (Emulated) (available)
+20:59:32.101: v4l2-input: Stepwise and Continuous framerates are currently hardcoded
+20:59:32.101: v4l2-input: Found input 'Camera 9' (Index 0)
+20:59:32.101: v4l2-input: Pixelformat: 8-bit Greyscale (unavailable)
+20:59:32.101: v4l2-input: Pixelformat: RGB3 (Emulated) (unavailable)
+20:59:32.101: v4l2-input: Pixelformat: BGR3 (Emulated) (available)
+20:59:32.101: v4l2-input: Pixelformat: YU12 (Emulated) (available)
+20:59:32.101: v4l2-input: Pixelformat: YV12 (Emulated) (available)
+20:59:32.102: v4l2-input: Stepwise and Continuous framerates are currently hardcoded
