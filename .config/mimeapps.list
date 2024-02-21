@@ -9,3 +9,5 @@ x-scheme-handler/eclipse+command x-scheme-handler/eclipse+mpc=_usr_lib_eclipse_.
 
 [Added Associations]
 image/png=sxiv.desktop;
+text/plain=code.desktop;nvim.desktop;
+application/x-shellscript=code.desktop;

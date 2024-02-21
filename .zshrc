@@ -30,7 +30,7 @@ source ~/.config/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 source ~/.config/zsh-z/zsh-z.plugin.zsh
 #source ~/.config/sudo.plugin.zsh
 
-export $(envsubst < .env)
+export $(envsubst < $HOME/.env)
 
 export PATH=$PATH:/home/anamata/.spicetify
 export PATH=$PATH:/home/anamata/.scripts
