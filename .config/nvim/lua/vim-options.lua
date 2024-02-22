@@ -7,6 +7,8 @@ vim.cmd("set shiftwidth=2")
 
 vim.cmd("set cursorline")
 
+vim.g.mapleader = "t"
+
 vim.opt.wrap = false
 
 vim.o.hlsearch = false
