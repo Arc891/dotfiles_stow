@@ -3,3 +3,5 @@
 	email = ezra.hulsman@gmail.com
 [core]
 	editor = vim
+[safe]
+	directory = /etc/nixos
