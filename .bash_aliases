@@ -19,6 +19,14 @@ SHELLRC=""
 
 
 
+#------# NIXOS #------#
+
+#----------------------------#
+
+
+
+
+
 #------# BASH ALIASES #------#
 
 #------# LS REPLACEMENTS #------#
@@ -352,12 +360,13 @@ spp() {
 #------# EDITING FILES/FOLDERS #------#
 
 alias v.='v .'
-alias sv='sudo vim'
+alias sv='sudo nvim'
 alias vf='v $(fzf --height 40%)'
 alias vb='v $ALIASES'
 alias vbr='v $SHELLRC'
 alias vms='v $DOTFILES/scripts/vim_shortcuts.txt'
-alias vrc='sudo vim /etc/vim/vimrc'
+alias vrc='sv /etc/vim/vimrc'
+alias vnc='sv /etc/nixos/configuration.nix'
 alias vssh='v $HOME/.ssh/config'
 alias vbsp='v $HOME/.config/bspwm/bspwmrc'
 alias vsx='v $HOME/.config/sxhkd/sxhkdrc'
