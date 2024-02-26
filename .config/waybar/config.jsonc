@@ -22,6 +22,7 @@
     "memory",
     "disk",
     "temperature",
+    "custom/mouse-battery",
     "custom/power_profile",
     "battery",
     "backlight",
@@ -143,6 +144,13 @@
     "return-type": "json",
   },
 
+  "custom/mouse-battery": {
+    "exec": "~/.scripts/echo_razer_battery.sh",
+    "exec-on-event": true,
+    "interval": 60,
+    "format": "󰦋 {}%",
+  },
+
   "custom/play-pause": {
     "exec": "playerctl metadata --all-players --format '{{ status }}: {{ artist }} - {{ title }}'",
     "on-click": "playerctl play-pause",
@@ -207,7 +215,7 @@
     "scroll-step": 5,
     "format-icons": {
       "headphone": "",
-      "hands-free": "",
+      "hands-free": "",
       "headset": "",
       "phone": "",
       "portable": "",
