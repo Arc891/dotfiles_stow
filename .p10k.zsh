@@ -96,23 +96,25 @@
     nix_shell               # nix shell (https://nixos.org/nixos/nix-pills/developing-with-nix-shell.html)
     # vi_mode               # vi mode (you don't need this if you've enabled prompt_char)
     # vpn_ip                # virtual private network indicator
-    # load                  # CPU load
-    # disk_usage            # disk usage
-    # ram                   # free RAM
     # swap                  # used swap
     todo                    # todo items (https://github.com/todotxt/todo.txt-cli)
     timewarrior             # timewarrior tracking status (https://timewarrior.net/)
     taskwarrior             # taskwarrior task count (https://taskwarrior.org/)
     # cpu_arch              # CPU architecture
+    date                    # current date
     time                    # current time
     # =========================[ Line #2 ]=========================
     newline
+    load                  # CPU load
+    disk_usage            # disk usage
+    ram                   # free RAM
+    battery              # internal battery
     # ip                    # ip address and bandwidth usage for a specified network interface
     # public_ip             # public IP address
     # proxy                 # system-wide http/https/ftp proxy
-    # battery               # internal battery
     # wifi                  # wifi speed
     # example               # example user-defined segment (see prompt_example function below)
+    # my_battery_status
   )
 
   # Defines character set used by powerlevel10k. It's best to let `p10k configure` set it for you.
@@ -1641,7 +1643,7 @@
   # Show battery in yellow when it's discharging.
   typeset -g POWERLEVEL9K_BATTERY_DISCONNECTED_FOREGROUND=3
   # Battery pictograms going from low to high level of charge.
-  typeset -g POWERLEVEL9K_BATTERY_STAGES='\uf58d\uf579\uf57a\uf57b\uf57c\uf57d\uf57e\uf57f\uf580\uf581\uf578'
+  typeset -g POWERLEVEL9K_BATTERY_STAGES='󰂎󰁺󰁻󰁼󰁽󰁾󰁿󰂀󰂁󰂂󰁹'
   # Don't show the remaining time to charge/discharge.
   typeset -g POWERLEVEL9K_BATTERY_VERBOSE=false
   typeset -g POWERLEVEL9K_BATTERY_BACKGROUND=0
@@ -1687,6 +1689,22 @@
   # typeset -g POWERLEVEL9K_TIME_VISUAL_IDENTIFIER_EXPANSION='⭐'
   # Custom prefix.
   # typeset -g POWERLEVEL9K_TIME_PREFIX='at '
+
+  ####################################[ date: current date ]####################################
+  # Current time color.
+  typeset -g POWERLEVEL9K_DATE_FOREGROUND=0
+  typeset -g POWERLEVEL9K_DATE_BACKGROUND=4
+  # Format for the current time: 09:51:02. See `man 3 strftime`.
+  typeset -g POWERLEVEL9K_DATE_FORMAT='%D{%a %d/%m/%y}'
+  # If set to true, time will update when you hit enter. This way prompts for the past
+  # commands will contain the start times of their commands as opposed to the default
+  # behavior where they contain the end times of their preceding commands.
+  typeset -g POWERLEVEL9K_DATE_UPDATE_ON_COMMAND=false
+  # Custom icon.
+  typeset -g POWERLEVEL9K_DATE_VISUAL_IDENTIFIER_EXPANSION=''
+  # Custom prefix.
+  # typeset -g POWERLEVEL9K_TIME_PREFIX='at '
+  
 
   # Example of a user-defined prompt segment. Function prompt_example will be called on every
   # prompt if `example` prompt segment is added to POWERLEVEL9K_LEFT_PROMPT_ELEMENTS or
