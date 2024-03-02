@@ -21,6 +21,9 @@ SHELLRC=""
 
 #------# NIXOS #------#
 
+alias nix_search='f(){ xdg-open "https://search.nixos.org/packages?channel=23.11&from=0&size=50&sort=relevance&type=packages&query=$1"; unset -f f; }; f'
+alias nix-shell='nix-shell --run zsh'
+
 #----------------------------#
 
 
@@ -555,7 +558,8 @@ alias gdm-banner='v /etc/dconf/db/gdm.d/01-banner-message'
 
 alias beep-off='xset b off'
 
-alias restart_waybar='killall -SIGUSR2 waybar'
+alias restart_waybar='pkill -SIGUSR2 waybar'
+alias start_waybar='waybar 2> /dev/null 1> /dev/null &'
 
 #----------------------------#
 
