@@ -9,6 +9,9 @@
   "modules-left": [
     "custom/launch_wofi",
     "hyprland/workspaces",
+    "cpu",
+    "memory",
+    "disk",
     "hyprland/window",
   ],
   "modules-center": [
@@ -18,9 +21,6 @@
     "custom/power_btn",
   ],
   "modules-right": [
-    "cpu",
-    "memory",
-    "disk",
     "temperature",
     "custom/mouse-battery",
     "custom/power_profile",
@@ -37,7 +37,7 @@
   },
 
   "custom/launch_wofi": {
-    "format": "󰰑", // 
+    "format": "", // 󰰑
     "on-click": "pkill wofi; wofi -n",
     "tooltip": false,
   },
@@ -62,6 +62,11 @@
   },
 
   "cpu": {
+    "states": {
+      "good": 0,
+      "warning": 80,
+      "critical": 95,
+    },
     "interval": 10,
     "format": " {usage}%",
     "max-length": 10,
@@ -69,15 +74,25 @@
   },
 
   "disk": {
+    "states": {
+      "good": 0,
+      "warning": 90,
+      "critical": 95,
+    },
     "interval": 30,
     "format": "󰋊 {percentage_used}%",
     "path": "/",
     "tooltip": true,
-    "tooltip-format": "nvme0n1p2 - {used} used out of {total} on {path} ({percentage_used}%)",
+    "tooltip-format": "sda3 - {used} used out of {total} on {path} ({percentage_used}%)",
     "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'",
   },
 
   "memory": {
+    "states": {
+      "good": 0,
+      "warning": 80,
+      "critical": 95,
+    },
     "interval": 30,
     "format": " {}%",
     "max-length": 10,
@@ -88,7 +103,7 @@
 
   "custom/updates": {
     "format": "{}",
-    "exec": "~/.config/waybar/scripts/update-sys",
+    "exec": "~/.config/waybar/scriptkillalls/update-sys",
     "on-click": "~/.config/waybar/scripts/update-sys update",
     "interval": 300,
     "tooltip": true,
@@ -97,33 +112,37 @@
   "hyprland/workspaces": {
     "format": "{icon}",
     "format-icons": {
-      "1": "",
-      "2": "",
-      "3": "",
-      "4": "",
-      "5": "",
-      "10": "󰖂",
+      "1": "一",
+      "2": "二",
+      "3": "三",
+      "4": "四",
+      "5": "五",
+      "6": "六",
+      "7": "七",
+      "8": "八",
+      "9": "九",
+      "10": "十",
+      //  "1": "",
+      //  "2": "",
+      //  "3": "󰨞", //
+      //  "4": "",
+      //  "5": "",
+      //  "6": "",
+      //  "7": "",
+      //  "8": "",
+      //  "9": "",
+      //  "10": "󰖂",
       //"active": "",
-      "special": "",
-      "default": "",
+      "special": "百",
+      "default": "〇",
+      //"special": "",
+      //"default": "", //
     },
     "sort-by-number": true,
     //"show-special": true,
     "disable-scroll": true,
     "all-outputs": true,
     "on-click": "activate",
-    "persistent-workspaces": {
-      "1": [],
-      "2": [],
-      "3": [],
-      "4": [],
-      "5": [],
-      "6": [],
-      "7": [],
-      "8": [],
-      "9": [],
-      "10": [],
-    },
   },
 
   "custom/power_profile": {
@@ -145,7 +164,7 @@
   },
 
   "custom/mouse-battery": {
-    "exec": "~/.scripts/echo_razer_battery.sh",
+    "exec": "~/.scripts/echo_razer_battery_poly.sh",
     "exec-on-event": true,
     "interval": 60,
     "format": "󰦋 {}%",
@@ -196,7 +215,7 @@
     "states": {
       "good": 95,
       "warning": 30,
-      "critical": 20,
+      "critical": 15,
     },
     "format": "{icon} {capacity}%",
     "format-charging": " {capacity}%",

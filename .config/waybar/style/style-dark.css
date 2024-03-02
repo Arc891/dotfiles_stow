@@ -1,7 +1,7 @@
 * {
   border: none;
   border-radius: 0;
-  font-family: "JetBrainsMono Nerd Font";
+  font-family: "FiraCode Nerd Font";
   font-weight: bold;
   font-size: 16px;
   min-height: 0;
@@ -53,7 +53,6 @@ tooltip label {
 }
 
 #workspaces button:hover {
-  padding-right: 10px;
   background: #11111b;
   color: #cdd6f4;
   border-radius: 10px;
@@ -126,8 +125,8 @@ tooltip label {
 
 #window {
   border-radius: 10px;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 00px;
+  margin-right: 10px;
 }
 
 #custom-launch_wofi {
@@ -151,6 +150,20 @@ tooltip label {
 #battery {
   color: #a6e3a1;
   border-left: 0px;
+}
+
+#cpu.warning,
+#memory.warning,
+#disk.warning,
+#battery.warning {
+  color: #f0cb29;
+}
+
+#cpu.critical,
+#memory.critical,
+#disk.critical,
+#battery.critical {
+  color: #e81010;
 }
 
 #custom-mouse-battery {
