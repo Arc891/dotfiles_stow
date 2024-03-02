@@ -1636,7 +1636,7 @@
 
   ################################[ battery: internal battery ]#################################
   # Show battery in red when it's below this level and not connected to power supply.
-  typeset -g POWERLEVEL9K_BATTERY_LOW_THRESHOLD=20
+  typeset -g POWERLEVEL9K_BATTERY_LOW_THRESHOLD=15
   typeset -g POWERLEVEL9K_BATTERY_LOW_FOREGROUND=1
   # Show battery in green when it's charging or fully charged.
   typeset -g POWERLEVEL9K_BATTERY_{CHARGING,CHARGED}_FOREGROUND=2
