@@ -25,6 +25,13 @@ SHELLRC=""
 
 
 
+#------# HYPRLAND #------#
+
+alias hpr='hyprctl'
+alias hpm='hyprctl monitors'
+alias hpc='hyprctl clients'
+
+#----------------------------#
 
 
 #------# BASH ALIASES #------#
@@ -511,6 +518,7 @@ print_welcome() {
 
 alias cl='clear && print_welcome'
 alias cle='clear'
+alias cln='clear && neofetch'
 alias rc='clear && source $SHELLRC'
 alias rf='source $SHELLRC'
 
@@ -556,6 +564,7 @@ alias gdm-banner='v /etc/dconf/db/gdm.d/01-banner-message'
 alias beep-off='xset b off'
 
 alias restart_waybar='killall -SIGUSR2 waybar'
+alias pipes_sh='pipes.sh -t 3 -p 4 -r 0'
 
 #----------------------------#
 
