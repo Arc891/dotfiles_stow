@@ -1,4 +1,6 @@
-bg=$(find ~/Pictures/FavoriteNordics | shuf -n 1)
+bg=$(find ~/Pictures/Backgrounds/ | shuf -n 1)
+
+echo $bg
 
 swww query || swww init
 
