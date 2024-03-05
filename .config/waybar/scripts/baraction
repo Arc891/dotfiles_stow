@@ -29,4 +29,4 @@ swww img ~/.config/hypr/wallpaper$SWITCHTO.jpg --transition-fps 60 --transition-
 ln -sf /usr/share/sddm/themes/sdt/Backgrounds/wallpaper$SWITCHTO.jpg /usr/share/sddm/themes/sdt/wallpaper.jpg
 
 #restart the waybar
-killall -SIGUSR2 waybar
+pkill -SIGUSR2 waybar

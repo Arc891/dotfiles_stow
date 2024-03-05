@@ -142,6 +142,20 @@ tooltip label {
   border-right: 0px;
 }
 
+#cpu.warning,
+#memory.warning,
+#disk.warning,
+#battery.warning {
+  color: #f0cb29;
+}
+
+#cpu.critical,
+#memory.critical,
+#disk.critical,
+#battery.critical {
+  color: #e81010;
+}
+
 #battery {
   color: #1d7715;
   border-left: 0px;

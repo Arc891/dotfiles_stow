@@ -1,4 +1,3 @@
-#!/usr/bin/bash
 bg=$(find ~/Pictures/FavoriteNordics | shuf -n 1)
 
 swww query || swww init
