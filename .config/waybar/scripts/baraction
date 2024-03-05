@@ -9,10 +9,12 @@ if [ $THEMEIS != "dark.css" ]; then
 fi
 
 #set the waybar theme
-ln -sf ~/.config/waybar/style/style$SWITCHTO.css ~/.config/waybar/style.css
+cd ~/.dotfiles/.config/waybar/
+ln -sf ./style/style$SWITCHTO.css style.css
 
 #set the wofi theme
-ln -sf ~/.config/wofi/style/style$SWITCHTO.css ~/.config/wofi/style.css
+cd ~/.dotfiles/.config/wofi/
+ln -sf ./style/style$SWITCHTO.css style.css
 
 #set the xfce theme
 xfconf-query -c xsettings -p /Net/ThemeName -s "Adwaita$SWITCHTO"
