@@ -9,6 +9,9 @@
   "modules-left": [
     "custom/launch_wofi",
     "hyprland/workspaces",
+    "cpu",
+    "memory",
+    "disk",
     "hyprland/window",
   ],
   "modules-center": [
@@ -18,9 +21,6 @@
     "custom/power_btn",
   ],
   "modules-right": [
-    "cpu",
-    "memory",
-    "disk",
     "temperature",
     "custom/mouse-battery",
     "custom/power_profile",
