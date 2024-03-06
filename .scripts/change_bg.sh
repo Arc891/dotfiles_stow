@@ -9,4 +9,3 @@ find ~/Pictures/Backgrounds/ -maxdepth 1 -type f -print0 |
   done;
 
 #ln -sf $bg /usr/share/sddm/themes/sdt/wallpaper.jpg
-
