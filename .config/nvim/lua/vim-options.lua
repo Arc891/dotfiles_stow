@@ -29,8 +29,8 @@ vim.o.termguicolors = true
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
-vim.keymap.set("i", "jk", "<esc>")
-vim.keymap.set("i", "kj", "<esc>")
+-- vim.keymap.set("i", "jk", "<esc>")
+-- vim.keymap.set("i", "kj", "<esc>")
 
 vim.keymap.set("n", "<Tab>", ":bnext<CR>")
 vim.keymap.set("n", "<S-Tab>", ":bprev<CR>")

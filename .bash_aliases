@@ -28,6 +28,13 @@ alias nix-shell='nix-shell --run zsh'
 
 
 
+#------# HYPRLAND #------#
+
+alias hpr='hyprctl'
+alias hpm='hyprctl monitors'
+alias hpc='hyprctl clients'
+
+#----------------------------#
 
 
 #------# BASH ALIASES #------#
@@ -514,6 +521,7 @@ print_welcome() {
 
 alias cl='clear && print_welcome'
 alias cle='clear'
+alias cln='clear && neofetch'
 alias rc='clear && source $SHELLRC'
 alias rf='source $SHELLRC'
 
@@ -558,6 +566,7 @@ alias gdm-banner='v /etc/dconf/db/gdm.d/01-banner-message'
 
 alias beep-off='xset b off'
 
+alias pipes_sh='pipes.sh -t 3 -p 4 -r 0'
 alias restart_waybar='pkill -SIGUSR2 waybar'
 alias start_waybar='waybar 2> /dev/null 1> /dev/null &'
 
