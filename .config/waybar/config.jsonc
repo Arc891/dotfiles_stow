@@ -37,7 +37,7 @@
   },
 
   "custom/launch_wofi": {
-    "format": "", // 󰰑
+    "format": "󱒔", //  󰰑  󰠄
     "on-click": "pkill wofi; wofi -n",
     "tooltip": false,
   },
@@ -83,7 +83,7 @@
     "format": "󰋊 {percentage_used}%",
     "path": "/",
     "tooltip": true,
-    "tooltip-format": "sda3 - {used} used out of {total} on {path} ({percentage_used}%)",
+    "tooltip-format": "nvme0n1p2 - {used} used out of {total} on {path} ({percentage_used}%)",
     "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'",
   },
 
@@ -103,7 +103,7 @@
 
   "custom/updates": {
     "format": "{}",
-    "exec": "~/.config/waybar/scriptkillalls/update-sys",
+    "exec": "~/.config/waybar/scripts/update-sys",
     "on-click": "~/.config/waybar/scripts/update-sys update",
     "interval": 300,
     "tooltip": true,
@@ -112,37 +112,50 @@
   "hyprland/workspaces": {
     "format": "{icon}",
     "format-icons": {
-      "1": "一",
-      "2": "二",
-      "3": "三",
-      "4": "四",
-      "5": "五",
-      "6": "六",
-      "7": "七",
-      "8": "八",
-      "9": "九",
-      "10": "十",
-      //  "1": "",
-      //  "2": "",
-      //  "3": "󰨞", //
-      //  "4": "",
-      //  "5": "",
-      //  "6": "",
-      //  "7": "",
-      //  "8": "",
-      //  "9": "",
-      //  "10": "󰖂",
+      //"1": "一",
+      //"2": "二",
+      //"3": "三",
+      //"4": "四",
+      //"5": "五",
+      //"6": "六",
+      //"7": "七",
+      //"8": "八",
+      //"9": "九",
+      //"10": "十",
+      "1": "",
+      "2": "",
+      "3": "", //
+      "4": "",
+      "5": "",
+      //"6": "",
+      //"7": "",
+      "8": "󰨞",
+      "9": "", //
+      "10": "󰖂",
       //"active": "",
-      "special": "百",
-      "default": "〇",
+      //"special": "〇",
+      //"-97": "百",
+      //"default": "百", // 〇
       //"special": "",
-      //"default": "", //
+      "default": "", //
     },
     "sort-by-number": true,
     //"show-special": true,
     "disable-scroll": true,
     "all-outputs": true,
     "on-click": "activate",
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": [],
+      "6": [],
+      "7": [],
+      "8": [],
+      "9": [],
+      "10": [],
+    },
   },
 
   "custom/power_profile": {
@@ -166,6 +179,7 @@
   "custom/mouse-battery": {
     "exec": "~/.scripts/echo_razer_battery_poly.sh",
     "exec-on-event": true,
+    "on-click": "polychromatic-controller",
     "interval": 60,
     "format": "󰦋 {}%",
   },
@@ -198,8 +212,8 @@
     "interval": 1,
     "tooltip": true,
     "tooltip-format": "{: %A, %B %e %Y}",
-    "on-scroll-up": "hyprland-relative-workspace b",
-    "on-scroll-down": "hyprland-relative-workspace f",
+    "on-scroll-up": "hyprctl dispatch workspace e-1",
+    "on-scroll-down": "hyprctl dispatch workspace e+1",
   },
 
   "backlight": {
