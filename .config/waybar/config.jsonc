@@ -51,7 +51,7 @@
   "custom/light_dark": {
     "format": "󰐾",
     "on-click": "~/.config/waybar/scripts/baraction light",
-    "on-click-right": "~/.scripts/change_bg.sh",
+    "on-click-right": "~/.scripts/random_bg.sh",
     "tooltip": false,
   },
 
