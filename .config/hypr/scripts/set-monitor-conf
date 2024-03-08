@@ -1,0 +1,13 @@
+monitor_count=$(hyperctl monitors | grep Monitor | wc -l)
+CONF=""
+
+cd ~/.config/hypr/
+if [[ monitor_count == 3 ]]; then
+    CONF="home";
+elif [[ monitor_count == 2 ]]; then
+    CONF="work";
+else 
+    CONF="generic"
+fi
+
+ln -sf ./monitor-setup/monitors-$CONF.conf monitors.conf
