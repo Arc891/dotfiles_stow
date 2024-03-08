@@ -1,10 +1,10 @@
-monitor_count=$(hyperctl monitors | grep Monitor | wc -l)
+monitor_count=$(hyprctl monitors | grep Monitor | wc -l)
 CONF=""
 
-cd ~/.config/hypr/
-if [[ monitor_count == 3 ]]; then
+cd ~/.dotfiles/.config/hypr/
+if [[ $monitor_count == "3" ]]; then
     CONF="home";
-elif [[ monitor_count == 2 ]]; then
+elif [[ $monitor_count == "2" ]]; then
     CONF="work";
 else 
     CONF="generic"
