@@ -58,6 +58,8 @@ tooltip label {
   border-radius: 10px;
 }
 
+#image,
+#custom-spotify,
 #custom-mouse-battery,
 #custom-play-pause,
 #custom-previous,
@@ -90,6 +92,7 @@ tooltip label {
 }
 
 #tray,
+#custom-spotify,
 #custom-lock_screen,
 #temperature,
 #backlight,
@@ -98,6 +101,7 @@ tooltip label {
   border-radius: 10px 0px 0px 10px;
 }
 
+#image,
 #custom-light_dark,
 #custom-power_btn,
 #workspaces,
@@ -168,4 +172,8 @@ tooltip label {
 
 #custom-mouse-battery {
   color: #89b4fa;
+}
+
+#custom-spotify {
+  padding: 0px 0px 0px 10px;
 }

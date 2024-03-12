@@ -53,6 +53,7 @@ tooltip label {
   border-radius: 10px;
 }
 
+#custom-spotify,
 #custom-mouse-battery,
 #custom-play-pause,
 #custom-previous,
@@ -63,6 +64,7 @@ tooltip label {
 #custom-power_btn,
 #custom-power_profile,
 #custom-weather,
+#image,
 #window,
 #cpu,
 #disk,
@@ -93,11 +95,13 @@ tooltip label {
   border-radius: 10px 0px 0px 10px;
 }
 
+#custom-spotify,
 #custom-light_dark,
 #custom-power_btn,
 #workspaces,
 #pulseaudio.microphone,
 #battery,
+#image,
 #disk {
   border-radius: 0px 10px 10px 0px;
   margin-right: 10px;
@@ -163,4 +167,8 @@ tooltip label {
 
 #custom-mouse-battery {
   color: #407cdd;
+}
+
+#custom-spotify {
+  padding: 0px 0px 0px 10px;
 }
