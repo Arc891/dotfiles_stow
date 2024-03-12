@@ -5,7 +5,12 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-to_export=("/usr/local/opt/tcl-tk/bin" "$HOME/.spicetify" "$HOME/.scripts" "$HOME/.cargo/bin")
+to_export=("/usr/local/opt/tcl-tk/bin" 
+           "$HOME/.spicetify" 
+           "$HOME/.scripts" 
+           "$HOME/.cargo/bin"
+           "$HOME/.config/spotifyc"
+         )
 for p in "${to_export[@]}"
 do
 	if [[ $(echo $PATH | grep $p) == "" ]]; then
