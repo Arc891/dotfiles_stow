@@ -21,9 +21,10 @@
     "custom/power_btn",
   ],
   "modules-right": [
+    "custom/spotify",
+    "image#album-art",
     "temperature",
     "custom/mouse-battery",
-    "custom/power_profile",
     "battery",
     "backlight",
     "pulseaudio",
@@ -33,7 +34,13 @@
   ],
 
   "hyprland/window": {
-    "format": "{}",
+    "format": "{title} - {class}",
+    "rewrite": {
+      "(.*) - Google-chrome": " $1",
+      "(.*) - kitty": " [$1] - kitty",
+      " - ": "",
+    },
+    "separate-outputs": true,
   },
 
   "custom/launch_wofi": {
@@ -51,7 +58,7 @@
   "custom/light_dark": {
     "format": "󰐾",
     "on-click": "~/.config/waybar/scripts/baraction light",
-    "on-click-right": "~/.scripts/random_bg.sh",
+    "on-click-right": "~/.config/hypr/hyprland.editor",
     "tooltip": false,
   },
 
@@ -109,6 +116,26 @@
     "tooltip": true,
   },
 
+  "image#album-art": {
+    "exec": "~/.scripts/album_art.sh",
+    "on-click": "spotify",
+    "tooltip": true,
+    "size": 32,
+    "interval": 5,
+  },
+
+  "custom/spotify": {
+    "format": "{}",
+    "return-type": "json",
+    "max-length": 40,
+    "on-click": "playerctl -p spotify play-pause",
+    "on-click-right": "killall spotify",
+    "on-scroll-up": "playerctl -p spotify next",
+    "on-scroll-down": "playerctl -p spotify previous",
+    "exec": "$HOME/.config/waybar/scripts/mediaplayer.py 2> /dev/null", // Script in resources/custom_modules folder
+    "exec-if": "pgrep spotify",
+  },
+
   "hyprland/workspaces": {
     "format": "{icon}",
     "format-icons": {
@@ -159,11 +186,12 @@
   },
 
   "custom/power_profile": {
-    //shows the current power profile and switches to next on click
     "exec": "$HOME/.scripts/echo_startstop.sh",
     "exec-on-event": true,
     "interval": "20",
-    "format": "⚡︎ {}", //󰈐
+    "format": "⚡︎", //󰈐
+    "tooltip": true,
+    "tooltip-format": "{}",
     "on-click": "kitty sh -c '$HOME/.scripts/set_battery_range.sh'",
   },
 
@@ -236,6 +264,7 @@
     "format-plugged": " {capacity}%",
     "format-alt": "{time} {icon}",
     "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "on-click": "kitty sh -c '$HOME/.scripts/set_battery_range.sh'",
   },
 
   "pulseaudio": {
