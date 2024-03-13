@@ -66,6 +66,7 @@ class PlayerManager:
 
     def write_output(self, text, player):
         logger.debug(f"Writing output: {text}")
+        text = text.replace("&", "+")
 
         output = {"text": text,
                   "class": "custom-" + player.props.player_name,
