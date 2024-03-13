@@ -390,6 +390,8 @@ alias vh='v $HOME/.config/hypr/hyprland.conf'
 alias vhb='v $HOME/.config/hypr/binds.conf'
 alias vhm='v $HOME/.config/hypr/monitors.conf'
 alias vw='v $HOME/.config/waybar/config.jsonc'
+alias vwc='v $HOME/.config/waybar/'
+alias vws='v $HOME/.config/waybar/style.css'
 alias idea='eureka'
 alias cron='EDITOR=vim crontab'
 alias crone='EDITOR=vim crontab -e'
@@ -570,7 +572,7 @@ alias beep-off='xset b off'
 
 alias pipes_sh='pipes.sh -t 3 -p 4 -r 0'
 
-alias start_waybar='waybar &>/dev/null &'
+alias start_waybar='waybar &>/dev/null'
 alias reload_waybar='pkill -SIGUSR2 waybar'
 alias restart_waybar='pkill waybar && start_waybar'
 
