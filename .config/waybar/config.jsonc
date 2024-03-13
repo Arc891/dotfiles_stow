@@ -36,8 +36,13 @@
   "hyprland/window": {
     "format": "{title} - {class}",
     "rewrite": {
-      "(.*) - Google-chrome": " $1",
+      "(.*) - Google-chrome": "  $1",
       "(.*) - kitty": " [$1] - kitty",
+      "(.*) - VirtualBox Machine": " $1",
+      "(.*) - VirtualBox Manager": " $1",
+      "(.*) - pulseUI": "󰖂 $1 - pulseUI",
+      "(.*) - Code": "󰨞 $1",
+      "(.*) - Spotify": " Spotify: $1",
       " - ": "",
     },
     "separate-outputs": true,
@@ -118,6 +123,7 @@
 
   "image#album-art": {
     "exec": "~/.scripts/album_art.sh",
+    "exec-if": "pgrep spotify",
     "on-click": "spotify",
     "tooltip": true,
     "size": 32,
@@ -125,14 +131,14 @@
   },
 
   "custom/spotify": {
-    "format": "{}",
+    "format": "<span font='14px' font-weight='bold'>{}</span>",
     "return-type": "json",
     "max-length": 40,
     "on-click": "playerctl -p spotify play-pause",
-    "on-click-right": "killall spotify",
+    "on-click-right": "playerctl play-pause",
     "on-scroll-up": "playerctl -p spotify next",
     "on-scroll-down": "playerctl -p spotify previous",
-    "exec": "$HOME/.config/waybar/scripts/mediaplayer.py 2> /dev/null", // Script in resources/custom_modules folder
+    "exec": "$HOME/.config/waybar/scripts/mediaplayer.py 2> /dev/null",
     "exec-if": "pgrep spotify",
   },
 
