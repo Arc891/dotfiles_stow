@@ -35,6 +35,16 @@ alias hpm='hyprctl monitors'
 alias hpc='hyprctl clients'
 
 alias rh='$HOME/.config/hypr/hyprland.editor'
+diffh() {
+  d=$(diff ~/.config/hypr/hyprland.conf ~/.dotfiles/.config/hypr/hyprland.conf)
+  if [ -z $d ]; then
+    echo "Same file, removing from ~/.conf...";
+    rm ~/.config/hypr/hyprland.conf;
+    echo "Done.";
+  else 
+    echo "Different. Check before remoing."
+  fi
+}
 
 #----------------------------#
 
