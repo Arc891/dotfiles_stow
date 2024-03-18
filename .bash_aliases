@@ -34,6 +34,8 @@ alias hpr='hyprctl'
 alias hpm='hyprctl monitors'
 alias hpc='hyprctl clients'
 
+alias rh='$HOME/.config/hypr/hyprland.editor'
+
 #----------------------------#
 
 
@@ -387,10 +389,13 @@ alias yml='code $HOME/.config/alacritty/alacritty.yml'
 alias esp='code $HOME/.config/espanso'
 alias rscripts='v $HOME/.config/bspwm/scripts/'
 alias vh='v $HOME/.config/hypr/hyprland.conf'
-alias vhb='v $HOME/.config/hypr/binds.conf'
-alias vhm='v $HOME/.config/hypr/monitors.conf'
-alias vw='v $HOME/.config/waybar/config.jsonc'
-alias vwc='v $HOME/.config/waybar/'
+alias vhb='v $HOME/.config/hypr/binds.conf && rh'
+alias vhm='v $HOME/.config/hypr/monitors.conf && rh'
+alias vhe='v $HOME/.config/hypr/exec.conf && rh'
+alias vhw='v $HOME/.config/hypr/windowrules.conf && rh'
+alias vhs='v $HOME/.config/hypr/system.conf && rh'
+alias vw='v $HOME/.config/waybar/'
+alias vwc='v $HOME/.config/waybar/config.jsonc'
 alias vws='v $HOME/.config/waybar/style.css'
 alias idea='eureka'
 alias cron='EDITOR=vim crontab'
@@ -416,6 +421,21 @@ alias da='docker attach'
 
 alias leetr='clear && rustc rust.rs && RUST_BACKTRACE=full ./rust'
 alias leetcpp='clear && g++ -o cpp main.cpp && ./cpp'
+
+new_leet_dir() {
+  if [[ ! -f ./template.cpp ]]; then 
+    echo "Not in LeetCode dir. First cd and then try again";
+    return;
+  fi
+  echo "Enter new dirname: ";
+  read dirname;
+  mkdir $dirname;
+  echo "Language extension: ";
+  read prog;
+  cp ./template.$prog $dirname/main.$prog;
+  cd $dirname;
+  code main.$prog;
+}
 
 #----------------------------#
 
