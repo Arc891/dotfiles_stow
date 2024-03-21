@@ -42,7 +42,7 @@ diffh() {
     rm ~/.config/hypr/hyprland.conf;
     echo "Done.";
   else 
-    echo "Different. Check before remoing."
+    echo "Different. Check before removing."
   fi
 }
 
@@ -615,6 +615,7 @@ alias restart_waybar='pkill waybar && start_waybar'
 find_shellrc
 find_aliases
 cl
+pfetch
 #print_welcome
 #beep-off
 #neofetch
