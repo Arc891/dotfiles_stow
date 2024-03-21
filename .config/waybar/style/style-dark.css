@@ -101,7 +101,7 @@ tooltip label {
   border-radius: 10px 0px 0px 10px;
 }
 
-#image,
+#image.album-art,
 #custom-light_dark,
 #custom-power_btn,
 #workspaces,
@@ -109,6 +109,11 @@ tooltip label {
 #battery,
 #disk {
   border-radius: 0px 10px 10px 0px;
+  margin-right: 10px;
+}
+
+#image.pics {
+  border-radius: 10px;
   margin-right: 10px;
 }
 

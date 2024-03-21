@@ -15,6 +15,7 @@
     "hyprland/window",
   ],
   "modules-center": [
+    "image#pics",
     "custom/lock_screen",
     "custom/updates",
     "clock",
@@ -36,9 +37,12 @@
   "hyprland/window": {
     "format": "{title} - {class}",
     "rewrite": {
+      "Microsoft Teams - (.*) \\| (.*)": "󰊻  $1",
+      "Outlook \\(PWA\\) - (.*) - (.*)": "󰊻  $1",
       "(.*) - Google-chrome": "  $1",
+      "(.*) - Chromium": "  $1",
       "(.*) - kitty": " [$1] - kitty",
-      "(.*) - VirtualBox Machine": " $1",
+      "(.*) - (.*) - VirtualBox Machine": " $1",
       "(.*) - VirtualBox Manager": " $1",
       "(.*) - pulseUI": "󰖂 $1 - pulseUI",
       "(.*) - Code": "󰨞 $1",
@@ -118,6 +122,14 @@
     "exec": "~/.config/waybar/scripts/update-sys",
     "on-click": "~/.config/waybar/scripts/update-sys update",
     "interval": 300,
+    "tooltip": true,
+  },
+
+  "image#pics": {
+    "exec": "~/.scripts/random_pic.sh",
+    "size": 39,
+    "interval": 30,
+    "on-click": "sxiv /tmp/image.jpg",
     "tooltip": true,
   },
 
@@ -245,7 +257,7 @@
     "format": "{:%a %T}",
     "interval": 1,
     "tooltip": true,
-    "tooltip-format": "{: %A, %B %e %Y}",
+    "tooltip-format": " {:%A, %B %e %Y}",
     "on-scroll-up": "hyprctl dispatch workspace e-1",
     "on-scroll-down": "hyprctl dispatch workspace e+1",
   },
