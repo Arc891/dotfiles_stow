@@ -266,6 +266,9 @@ alias brf='brightnessctl set 100%'
 
 alias chownme='sudo chown $USER:$USER'
 
+#alias sdn='shutdown now'
+alias sdn='systemctl poweroff'
+
 #----------------------------#
 
 
@@ -398,7 +401,8 @@ alias rice='v .config/bspwm/rices/$RICETHEME/'
 alias yml='code $HOME/.config/alacritty/alacritty.yml'
 alias esp='code $HOME/.config/espanso'
 alias rscripts='v $HOME/.config/bspwm/scripts/'
-alias vh='v $HOME/.config/hypr/hyprland.conf'
+alias vh='v $HOME/.config/hypr/'
+alias vhc='v $HOME/.config/hypr/hyprland.conf'
 alias vhb='v $HOME/.config/hypr/binds.conf && rh'
 alias vhm='v $HOME/.config/hypr/monitors.conf && rh'
 alias vhe='v $HOME/.config/hypr/exec.conf && rh'
@@ -429,7 +433,7 @@ alias da='docker attach'
 
 #------# CODING #------#
 
-alias leetr='clear && rustc rust.rs && RUST_BACKTRACE=full ./rust'
+alias leetr='clear && rustc -o rust main.rs && RUST_BACKTRACE=full ./rust'
 alias leetcpp='clear && g++ -o cpp main.cpp && ./cpp'
 
 new_leet_dir() {
@@ -605,6 +609,8 @@ alias pipes_sh='pipes.sh -t 3 -p 4 -r 0'
 alias start_waybar='waybar &>/dev/null'
 alias reload_waybar='pkill -SIGUSR2 waybar'
 alias restart_waybar='pkill waybar && start_waybar'
+
+alias restart='pkill $1 && $1'
 
 #----------------------------#
 
