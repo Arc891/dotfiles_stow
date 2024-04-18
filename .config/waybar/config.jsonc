@@ -15,7 +15,7 @@
     "hyprland/window",
   ],
   "modules-center": [
-    "image#pics",
+    //"image#pics", --auto-commented
     "custom/lock_screen",
     "custom/updates",
     "clock",
@@ -268,6 +268,9 @@
     "format-icons": ["󰃞", "󰃟", "󰃠"],
     "on-scroll-up": "brightnessctl set 1%+",
     "on-scroll-down": "brightnessctl set 1%-",
+    "on-click": "brightnessctl set 20%+",
+    "on-click-right": "brightnessctl set 20%-",
+    "on-click-middle": "brightnessctl set 100%",
     "min-length": 6,
   },
 
