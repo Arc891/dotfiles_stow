@@ -5,7 +5,7 @@
   "exclusive": true,
   "passthrough": false,
   "gtk-layer-shell": true,
-  "height": 50,
+  "height": 52,
   "modules-left": [
     "custom/launch_wofi",
     "hyprland/workspaces",
@@ -15,7 +15,7 @@
     "hyprland/window",
   ],
   "modules-center": [
-    //"image#pics", --auto-commented
+    "image#pics",
     "custom/lock_screen",
     "custom/updates",
     "clock",
@@ -38,9 +38,10 @@
     "format": "{title} - {class}",
     "rewrite": {
       "Microsoft Teams - (.*) \\| (.*)": "󰊻  $1",
-      "Outlook \\(PWA\\) - (.*) - (.*)": "󰊻  $1",
+      "Outlook \\(PWA\\) - (.*) - (.*)": "󰴢  $1",
+      "WhatsApp Web - (.*)": "󰖣  WhatsApp Web",
       "(.*) - Google-chrome": "  $1",
-      "(.*) - Chromium": "  $1",
+      "(.*) - Chromium": "󰊯  $1",
       "(.*) - kitty": " [$1] - kitty",
       "(.*) - (.*) - VirtualBox Machine": " $1",
       "(.*) - VirtualBox Manager": " $1",
@@ -53,7 +54,7 @@
   },
 
   "custom/launch_wofi": {
-    "format": "", //  󰰑  󰠄
+    "format": "󱒔", //  󰰑  󰠄
     "on-click": "pkill wofi; wofi -n",
     "tooltip": false,
   },
@@ -157,50 +158,50 @@
   "hyprland/workspaces": {
     "format": "{icon}",
     "format-icons": {
-      "1": "一",
-      "2": "二",
-      "3": "三",
-      "4": "四",
-      "5": "五",
-      "6": "六",
-      "7": "七",
-      "8": "八",
-      "9": "九",
-      "10": "十",
-      //"1": "",
-      //"2": "",
-      //"3": "", //
-      //"4": "",
-      //"5": "",
+      //"1": "一",
+      //"2": "二",
+      //"3": "三",
+      //"4": "四",
+      //"5": "五",
+      //"6": "六",
+      //"7": "七",
+      //"8": "八",
+      //"9": "九",
+      //"10": "十",
+      "1": "",
+      "2": "",
+      "3": "", //
+      "4": "",
+      "5": "",
       //"6": "",
       //"7": "",
-      //"8": "󰨞",
-      //"9": "", //
-      //"10": "󰖂",
+      "8": "󰨞",
+      "9": "", //
+      "10": "󰖂",
       //"active": "",
       //"special": "〇",
       //"-97": "百",
       //"default": "百", // 〇
       //"special": "",
-      //"default": "", //
+      "default": "", //
     },
     "sort-by-number": true,
     //"show-special": true,
     "disable-scroll": true,
-    //"all-outputs": true,
+    "all-outputs": true,
     "on-click": "activate",
-    //"persistent-workspaces": {
-    //  "1": [],
-    //  "2": [],
-    //  "3": [],
-    //  "4": [],
-    //  "5": [],
-    //  "6": [],
-    //  "7": [],
-    //  "8": [],
-    //  "9": [],
-    //  "10": [],
-    //},
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": [],
+      "6": [],
+      "7": [],
+      "8": [],
+      "9": [],
+      "10": [],
+    },
   },
 
   "custom/power_profile": {
