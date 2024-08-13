@@ -93,7 +93,7 @@ function cls() {
 }
 
 
-alias ll='pwd && ls -alF always'
+alias ll='pwd && ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias lsl='pwd && ls'
@@ -255,7 +255,7 @@ usage() { echo "CPU: $(cus $1)%, MEM: $(memus $1)%"; }
 
 alias duah='du -ah "$1" | grep -v "/$" | sort -rh'
 
-alias cat='bat'
+alias cat='batcat'
 
 alias battery='sudo tlp-stat -b'
 alias batc='cat /sys/class/power_supply/BAT*/capacity'
@@ -334,7 +334,7 @@ alias gaa='git add .'
 alias gp='git push'
 alias gpl='git pull'
 alias gplp='git pull && git push'
-alias gcm='f(){ git commit -m "$1"; unset -f f; }; f'
+alias gcm='f(){ git commit -S -m "$1"; unset -f f; }; f'
 alias gopen='f(){ xdg-open https://github.com/$GH_USER/$1 >/dev/null; unset -f f; }; f'
 alias gurl='git remote get-url origin'
 alias gclmy='f() { git clone git@github.com:Arc891/$1.git; unset -f f; }; f'
@@ -432,6 +432,11 @@ alias da='docker attach'
 
 
 #------# CODING #------#
+
+alias cg='cargo'
+alias cr='cargo run'
+alias cb='cargo build'
+alias cre='RUST_BACKTRACE=full cargo run > err.out 2>&1'
 
 alias leetr='clear && rustc -o rust main.rs && RUST_BACKTRACE=full ./rust'
 alias leetcpp='clear && g++ -o cpp main.cpp && ./cpp'
@@ -534,20 +539,20 @@ set_welcome_print() {
 
 print_welcome() {
     if [[ $USER == "anamata" ]]; then 
-	awelcome
+	    awelcome
     else
     	if [ -f $HOME/.config/print ]; then
     		if [[ $(cat $HOME/.config/print) == "0" ]]; then
 	   			return;
-			fi
+			  fi
     	fi
     	if [[ $COLUMNS -le $(get_print_width -s) ]]; then
-			nwelcome;
+			  nwelcome;
     	elif [[ $COLUMNS -le $(get_print_width) ]]; then
-			welcome-small;
-		else 
-			welcome;
-		fi
+		  	welcome-small;
+		  else 
+			  welcome;
+		  fi
     fi
 }
 
@@ -560,6 +565,7 @@ print_welcome() {
 alias cl='clear && print_welcome'
 alias cle='clear'
 alias cln='clear && neofetch'
+alias clp='clear && pfetch'
 alias rc='clear && source $SHELLRC'
 alias rf='source $SHELLRC'
 
@@ -605,12 +611,28 @@ alias gdm-banner='v /etc/dconf/db/gdm.d/01-banner-message'
 alias beep-off='xset b off'
 
 alias pipes_sh='pipes.sh -t 3 -p 4 -r 0'
+alias pipes-sh='pipes -t 3 -p 4 -r 0'
 
 alias start_waybar='waybar &>/dev/null'
 alias reload_waybar='pkill -SIGUSR2 waybar'
 alias restart_waybar='pkill waybar && start_waybar'
 
 alias restart='pkill $1 && $1'
+
+alias protontricks='flatpak run com.github.Matoking.protontricks'
+alias protontricks-launch='flatpak run --command=protontricks-launch com.github.Matoking.protontricks'
+
+function find_steam_game_id() {
+    find $HOME/snap/steam/common/.local/share/Steam/steamapps/ -maxdepth 1 -type f -name '*.acf' -exec awk -F '"' '/"appid|name/{ printf $4 "|" } END { print "" }' {} \; | column -t -s '|' | sort -k 2 | grep -i $1;
+}
+
+function run_steam_game() {
+  GAME_ID=$(find_steam_game_id $1);
+  #steam steam://rungameid/$GAME_ID
+  steam -applaunch $GAME_ID
+}
+
+alias speedrunners='steam -applaunch 207140'
 
 #----------------------------#
 

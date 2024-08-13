@@ -6,6 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 to_export=("/usr/local/opt/tcl-tk/bin" 
+           "/usr/local/go/bin"
            "$HOME/.spicetify" 
            "$HOME/.scripts" 
            "$HOME/.cargo/bin"
@@ -17,6 +18,12 @@ do
     export PATH=$PATH:$p
   fi
 done
+
+export XDG_DATA_DIRS="$XDG_DATA_DIRS:/var/lib/flatpak/exports/share:/home/ezrah/.local/share/flatpak/exports/share"
+
+if [ -d "$HOME/Downloads/adb-fastboot/platform-tools" ] ; then
+  export PATH="$PATH:$HOME/Downloads/adb-fastboot/platform-tools"
+fi
 
 # Zsh aliases
 alias .="source"
