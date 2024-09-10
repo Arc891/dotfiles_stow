@@ -29,6 +29,12 @@ fi
 alias .="source"
 alias vz="nvim $HOME/.zshrc"
 
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
+
+#Setup direnv hook
+eval "$(direnv hook zsh)"
+
 # Zsh prompts
 # PS1="[%{$fg[red]%}%n%{$reset_color%}: %{$fg[blue]%}%~%{$reset_color%}] %% "
 autoload -U colors && colors

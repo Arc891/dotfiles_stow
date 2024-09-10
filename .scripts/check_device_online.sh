@@ -1,16 +1,25 @@
 #!/bin/bash
 
-# Replace with your public IP address and the specific port
-PUBLIC_IP="$(cat $HOME/.config/pub_ip.txt)"
-PORT="$(cat $HOME/.config/pi_port.txt)"
+DIR="$HOME/.config/my_device"
+PUBLIC_IP="$(cat $DIR/pub_ip.txt)"
+PORT="$(cat $DIR/pi_port.txt)"
+NAME="$(cat $DIR/name.txt)"
+STATUS_FILE="$DIR/status_$NAME.txt";
+STATUS="$(cat $STATUS_FILE)"
 
-# Check if the port is open
-nc -zv $PUBLIC_IP $PORT > /dev/null 2>&1
+timeout 5 nc -zv $PUBLIC_IP $PORT > /dev/null 2>&1;
 
-# Check the result
 if [ $? -ne 0 ]; then
-  notify-send "Device Status" "Device is offline"
-else 
-  echo "Device is online!"
+  if [[ $STATUS == "On" ]]; then
+    notify-send "Device Status" "$NAME has gone offline.";
+    echo "Off" > $STATUS_FILE;
+  fi
+  echo "Device is offline.";
+else
+  if [[ $STATUS == "Off" ]]; then
+    notify-send "Device Status" "$NAME is back online!";
+    echo "On" > $STATUS_FILE;
+  fi
+  echo "Device is online!";
 fi
 
