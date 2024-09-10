@@ -619,6 +619,10 @@ alias restart_waybar='pkill waybar && start_waybar'
 
 alias restart='pkill $1 && $1'
 
+#----------------------------#
+
+#------# GAMES #------#
+
 alias protontricks='flatpak run com.github.Matoking.protontricks'
 alias protontricks-launch='flatpak run --command=protontricks-launch com.github.Matoking.protontricks'
 
@@ -633,6 +637,8 @@ function run_steam_game() {
 }
 
 alias speedrunners='steam -applaunch 207140'
+
+alias nvsmi='nvidia-smi'
 
 #----------------------------#
 
