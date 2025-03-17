@@ -1,3 +1,5 @@
+# Add deno completions to search path
+if [[ ":$FPATH:" != *":/home/ezrah/.zsh/completions:"* ]]; then export FPATH="/home/ezrah/.zsh/completions:$FPATH"; fi
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -22,7 +24,9 @@ done
 export XDG_DATA_DIRS="$XDG_DATA_DIRS:/var/lib/flatpak/exports/share:/home/ezrah/.local/share/flatpak/exports/share"
 
 if [ -d "$HOME/Downloads/adb-fastboot/platform-tools" ] ; then
-  export PATH="$PATH:$HOME/Downloads/adb-fastboot/platform-tools"
+  if [[ $(echo $PATH | grep "platform-tools") == "" ]]; then
+    export PATH="$PATH:$HOME/Downloads/adb-fastboot/platform-tools";
+  fi
 fi
 
 # Zsh aliases
@@ -31,6 +35,10 @@ alias vz="nvim $HOME/.zshrc"
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
+export FZF_DEFAULT_COMMAND='find .'
+
+# Set up kubectl completion
+source <(kubectl completion zsh)
 
 #Setup direnv hook
 eval "$(direnv hook zsh)"
@@ -55,6 +63,7 @@ source ~/.config/zsh-z/zsh-z.plugin.zsh
 
 export $(envsubst < $HOME/.env)
 
+. "/home/ezrah/.deno/env"
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-

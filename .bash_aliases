@@ -109,6 +109,34 @@ alias cpv='rsync -ah --info=progress2'
 
 #------# FUNCTIONS #------#
 
+vps() {
+  alacritty -e ssh vps &;
+}
+
+
+update_discord() {
+  URL="https://discord.com/api/download?platform=linux&format=deb"
+  VERSION=$(curl -I $URL | grep location | awk -F 'discord-' '{print $2}' | awk -F '.deb' '{print $1}');
+  INSTALLED=$(dpkg -l | grep discord | awk '{print $3}')
+  if [[ $VERSION != $INSTALLED ]]; then
+    echo -e "Discord versions do not match:\n"; 
+    echo "$VERSION - $INSTALLED";
+    curl -L -o /tmp/discord-$VERSION.deb $URL;
+    sudo apt install /tmp/discord-$VERSION.deb;
+    mv /tmp/discord-$VERSION.deb $HOME/Downloads/Apps/; 
+  else 
+    echo "Discord is up to date.";
+  fi 
+}
+
+
+updates() {
+  sudo apt update;
+  sudo apt upgrade;
+  update_discord;
+}
+
+
 rmln() {
 	rm $ALIASES;
 	ln $DOTFILES/config/bash_aliases $ALIASES;
@@ -283,7 +311,7 @@ push() {
 mkreponew() {
 	if [[ $# < 2 ]]
 	then
-		echo "Too few arguments ($#). Usage: createrepo {repo_name} {true / false (for private)}"
+		echo "Too few arguments ($#). Usage: createrepo {repo_name} {<private>: true / false }"
 	else
 		TOKEN="$(cat $HOME/.token)"	
 		curl -s -u $GH_USER:$TOKEN https://api.github.com/user/repos -d '{"name":"'$1'","private":'$2'}'; 
@@ -302,7 +330,7 @@ mkreponew() {
 mkrepo() {
 	if [[ $# < 2 ]]
 	then
-		echo "Too few arguments ($#). Usage: createrepo {repo_name} {true / false (for private)}"
+		echo "Too few arguments ($#). Usage: createrepo {repo_name} {<private>: true / false }"
 	else
 		TOKEN="$(cat $HOME/.token)"	
 		curl -s -u $GH_USER:$TOKEN https://api.github.com/user/repos -d '{"name":"'$1'","private":'$2'}'; 
@@ -350,7 +378,7 @@ scopen() { school "$1" "$2" && open "$3" > /dev/null 2>&1; }
 
 alias open='f(){ xdg-open $("pwd")/"$1"; unset -f f; }; f'
 alias coding='f(){ cd $CODING/"$1"; unset -f f; }; f'
-alias notes='f(){ cd $DOCUMENTS/Personal/Notes/"$1"; unset -f f; }; f'
+alias notes='f(){ cd $HOME/Notes/"$1"; unset -f f; }; f'
 alias cpd='f(){ coding Python/"$1"; unset -f f; }; f'
 alias hc='cpd HackerChat'
 alias hch='p $CODING/Python/HackerChat/hackerchat.py'
@@ -384,9 +412,64 @@ spp() {
 
 #------# EDITING FILES/FOLDERS #------#
 
+alias fzf="fzf --multi \
+  --height=50% \
+  --margin=5%,2%,2%,5% \
+  --border=double \
+  --border-label='|  󰥨 󰫳󰬇󰫳 󰱼  |' \
+  --info=inline \
+  --prompt='$>' \
+  --pointer='→' \
+  --marker='♡' \
+  --header='CTRL-c or ESC to quit' \
+  --bind='ctrl-r:reload(eval $FZF_DEFAULT_COMMAND)' \
+  --bind='del:execute(rm -ri {})' \
+  --bind='del:+reload(eval $FZF_DEFAULT_COMMAND)' \
+  --color='dark,fg:magenta' \
+  --preview='stat {}' \
+  --"
+
+alias fzf_file='f() { 
+  FZF_DEFAULT_COMMAND="find $1 -type f";
+  fzf --multi \
+    --preview="sudo cat {}" \
+    --preview-label="[ File Contents ]"; 
+  unset -f f; 
+}; f'
+
+alias fzf_dir='f() { 
+  FZF_DEFAULT_COMMAND="find $1 -type d"; 
+  fzf --multi \
+    --preview="sudo tree -C {}" \
+    --preview-label="[ Dir Contents ]"; 
+  unset -f f; 
+}; f'
+
+alias vf='f() {
+  if [[ $# -eq 0 ]]; then
+    FILE=$(fzf_file);
+  else 
+    FILE=$(fzf_file --query $1);
+  fi
+  if [[ ! -z $FILE ]]; then 
+    nvim $FILE;
+  fi;
+  unset -f f;
+}; f'
+
+alias vne='f() { 
+  if [[ $# -ne 0 ]]; then 
+    v $1; 
+  fi; 
+  unset -f f; 
+}; f'
+
+alias vfn='vne $(fzf_file $HOME/Notes)'
+alias vfd='vne $(fzf_dir)'
+alias vfa='sv $(fzf_file /)'
+
 alias v.='v .'
 alias sv='sudo nvim'
-alias vf='v $(fzf --height 40%)'
 alias vb='v $ALIASES'
 alias vbr='v $SHELLRC'
 alias vms='v $DOTFILES/scripts/vim_shortcuts.txt'
@@ -412,6 +495,7 @@ alias vw='v $HOME/.config/waybar/'
 alias vwc='v $HOME/.config/waybar/config.jsonc'
 alias vws='v $HOME/.config/waybar/style.css'
 alias idea='eureka'
+alias todo='vf todo.md'
 alias cron='EDITOR=vim crontab'
 alias crone='EDITOR=vim crontab -e'
 
@@ -473,7 +557,8 @@ alias p='python3'
 #------# PACKAGE MANAGER #------#
 
 alias sup='sudo apt update'
-alias supg='sup && sudo apt upgrade'
+#alias supg='sup && sudo apt upgrade'
+alias supg='tmux new-session -s apt_update "exec zsh -ic \"updates\""'
 
 alias pcyu='sudo pacman -Syyu'
 alias pac='sudo pacman -S'
@@ -595,6 +680,7 @@ hgrep () {
 
 alias hs='history 1 | grep'
 alias hsi='history 1 | grep -i'
+alias vhis='v ~/.zsh_history'
 
 HISTCONTROL='ignoredups'
 
@@ -645,6 +731,7 @@ alias nvsmi='nvidia-smi'
 
 
 #------# STARTUP COMMANDS #------#
+shopt -s expand_aliases
 
 find_shellrc
 find_aliases

@@ -6,6 +6,7 @@
 	editor = vim
 [safe]
 	directory = /etc/nixos
+	directory = /media/ezrah/819ba040-52c4-46f4-bd24-4d1e906cdd44/etc/nixos
 [init]
 	defaultBranch = main
 [commit]
