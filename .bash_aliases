@@ -81,6 +81,14 @@ if [ -x "$(command -v eza)" ]; then
 fi
 #-----------#
 
+#--# BAT #--#
+if [ -x "$(command -v bat)" ]; then
+  alias cat='bat'
+elif [ -x "$(command -v batcat)"]; then
+  alias cat='batcat'
+fi
+#-----------#
+
 #-----------------#
 
 function cls() {
@@ -283,8 +291,6 @@ cus() { ps -aux | rg "$1" | awk '{print $3}' | awk '{s+=$1} END {print s/16}'; }
 usage() { echo "CPU: $(cus $1)%, MEM: $(memus $1)%"; }
 
 alias duah='du -ah "$1" | grep -v "/$" | sort -rh'
-
-alias cat='batcat'
 
 alias battery='sudo tlp-stat -b'
 alias batc='cat /sys/class/power_supply/BAT*/capacity'
