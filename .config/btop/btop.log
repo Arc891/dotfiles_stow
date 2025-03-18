@@ -1,0 +1,9 @@
+
+2024/06/28 (11:09:00) | ===> btop++ v.1.3.0
+2024/06/28 (11:09:00) | WARNING: Failed to get disk/partition stats for mount "/media/ezrah/Arch\040Backup" with statvfs error code: 2. Ignoring...
+
+2024/09/04 (22:34:48) | ===> btop++ v.1.3.0
+2024/09/04 (22:34:48) | ERROR: Exception during Config::unlock() : unordered_map::at
+
+2024/09/29 (19:10:33) | ===> btop++ v.1.3.0
+2024/09/29 (19:10:33) | ERROR: Exception during Config::unlock() : unordered_map::at

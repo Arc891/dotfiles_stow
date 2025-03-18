@@ -233,5 +233,5 @@ colors: *everforest_dark_medium
 
 font:
   normal:
-    family: FiraCode Nerd Font Mono
+    family: FiraCode Regular #Nerd Font Mono
   size: 7.0

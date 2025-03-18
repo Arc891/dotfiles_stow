@@ -94,7 +94,7 @@ function cls() {
 }
 
 
-alias ll='pwd && ls -alF always'
+alias ll='pwd && ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias lsl='pwd && ls'
@@ -109,6 +109,34 @@ alias cpv='rsync -ah --info=progress2'
 
 
 #------# FUNCTIONS #------#
+
+vps() {
+  alacritty -e ssh vps &;
+}
+
+
+update_discord() {
+  URL="https://discord.com/api/download?platform=linux&format=deb"
+  VERSION=$(curl -I $URL | grep location | awk -F 'discord-' '{print $2}' | awk -F '.deb' '{print $1}');
+  INSTALLED=$(dpkg -l | grep discord | awk '{print $3}')
+  if [[ $VERSION != $INSTALLED ]]; then
+    echo -e "Discord versions do not match:\n"; 
+    echo "$VERSION - $INSTALLED";
+    curl -L -o /tmp/discord-$VERSION.deb $URL;
+    sudo apt install /tmp/discord-$VERSION.deb;
+    mv /tmp/discord-$VERSION.deb $HOME/Downloads/Apps/; 
+  else 
+    echo "Discord is up to date.";
+  fi 
+}
+
+
+updates() {
+  sudo apt update;
+  sudo apt upgrade;
+  update_discord;
+}
+
 
 rmln() {
 	rm $ALIASES;
@@ -256,7 +284,7 @@ usage() { echo "CPU: $(cus $1)%, MEM: $(memus $1)%"; }
 
 alias duah='du -ah "$1" | grep -v "/$" | sort -rh'
 
-alias cat='bat'
+alias cat='batcat'
 
 alias battery='sudo tlp-stat -b'
 alias batc='cat /sys/class/power_supply/BAT*/capacity'
@@ -284,7 +312,7 @@ push() {
 mkreponew() {
 	if [[ $# < 2 ]]
 	then
-		echo "Too few arguments ($#). Usage: createrepo {repo_name} {true / false (for private)}"
+		echo "Too few arguments ($#). Usage: createrepo {repo_name} {<private>: true / false }"
 	else
 		TOKEN="$(cat $HOME/.token)"	
 		curl -s -u $GH_USER:$TOKEN https://api.github.com/user/repos -d '{"name":"'$1'","private":'$2'}'; 
@@ -303,7 +331,7 @@ mkreponew() {
 mkrepo() {
 	if [[ $# < 2 ]]
 	then
-		echo "Too few arguments ($#). Usage: createrepo {repo_name} {true / false (for private)}"
+		echo "Too few arguments ($#). Usage: createrepo {repo_name} {<private>: true / false }"
 	else
 		TOKEN="$(cat $HOME/.token)"	
 		curl -s -u $GH_USER:$TOKEN https://api.github.com/user/repos -d '{"name":"'$1'","private":'$2'}'; 
@@ -335,7 +363,7 @@ alias gaa='git add .'
 alias gp='git push'
 alias gpl='git pull'
 alias gplp='git pull && git push'
-alias gcm='f(){ git commit -m "$1"; unset -f f; }; f'
+alias gcm='f(){ git commit -S -m "$1"; unset -f f; }; f'
 alias gopen='f(){ xdg-open https://github.com/$GH_USER/$1 >/dev/null; unset -f f; }; f'
 alias gurl='git remote get-url origin'
 alias gclmy='f() { git clone git@github.com:Arc891/$1.git; unset -f f; }; f'
@@ -351,7 +379,7 @@ scopen() { school "$1" "$2" && open "$3" > /dev/null 2>&1; }
 
 alias open='f(){ xdg-open $("pwd")/"$1"; unset -f f; }; f'
 alias coding='f(){ cd $CODING/"$1"; unset -f f; }; f'
-alias notes='f(){ cd $DOCUMENTS/Personal/Notes/"$1"; unset -f f; }; f'
+alias notes='f(){ cd $HOME/Notes/"$1"; unset -f f; }; f'
 alias cpd='f(){ coding Python/"$1"; unset -f f; }; f'
 alias hc='cpd HackerChat'
 alias hch='p $CODING/Python/HackerChat/hackerchat.py'
@@ -385,9 +413,64 @@ spp() {
 
 #------# EDITING FILES/FOLDERS #------#
 
+alias fzf="fzf --multi \
+  --height=50% \
+  --margin=5%,2%,2%,5% \
+  --border=double \
+  --border-label='|  󰥨 󰫳󰬇󰫳 󰱼  |' \
+  --info=inline \
+  --prompt='$>' \
+  --pointer='→' \
+  --marker='♡' \
+  --header='CTRL-c or ESC to quit' \
+  --bind='ctrl-r:reload(eval $FZF_DEFAULT_COMMAND)' \
+  --bind='del:execute(rm -ri {})' \
+  --bind='del:+reload(eval $FZF_DEFAULT_COMMAND)' \
+  --color='dark,fg:magenta' \
+  --preview='stat {}' \
+  --"
+
+alias fzf_file='f() { 
+  FZF_DEFAULT_COMMAND="find $1 -type f";
+  fzf --multi \
+    --preview="sudo cat {}" \
+    --preview-label="[ File Contents ]"; 
+  unset -f f; 
+}; f'
+
+alias fzf_dir='f() { 
+  FZF_DEFAULT_COMMAND="find $1 -type d"; 
+  fzf --multi \
+    --preview="sudo tree -C {}" \
+    --preview-label="[ Dir Contents ]"; 
+  unset -f f; 
+}; f'
+
+alias vf='f() {
+  if [[ $# -eq 0 ]]; then
+    FILE=$(fzf_file);
+  else 
+    FILE=$(fzf_file --query $1);
+  fi
+  if [[ ! -z $FILE ]]; then 
+    nvim $FILE;
+  fi;
+  unset -f f;
+}; f'
+
+alias vne='f() { 
+  if [[ $# -ne 0 ]]; then 
+    v $1; 
+  fi; 
+  unset -f f; 
+}; f'
+
+alias vfn='vne $(fzf_file $HOME/Notes)'
+alias vfd='vne $(fzf_dir)'
+alias vfa='sv $(fzf_file /)'
+
 alias v.='v .'
 alias sv='sudo nvim'
-alias vf='v $(fzf --height 40%)'
 alias vb='v $ALIASES'
 alias vbr='v $SHELLRC'
 alias vms='v $DOTFILES/scripts/vim_shortcuts.txt'
@@ -413,6 +496,7 @@ alias vw='v $HOME/.config/waybar/'
 alias vwc='v $HOME/.config/waybar/config.jsonc'
 alias vws='v $HOME/.config/waybar/style.css'
 alias idea='eureka'
+alias todo='vf todo.md'
 alias cron='EDITOR=vim crontab'
 alias crone='EDITOR=vim crontab -e'
 
@@ -433,6 +517,11 @@ alias da='docker attach'
 
 
 #------# CODING #------#
+
+alias cg='cargo'
+alias cr='cargo run'
+alias cb='cargo build'
+alias cre='RUST_BACKTRACE=full cargo run > err.out 2>&1'
 
 alias leetr='clear && rustc -o rust main.rs && RUST_BACKTRACE=full ./rust'
 alias leetcpp='clear && g++ -o cpp main.cpp && ./cpp'
@@ -469,7 +558,8 @@ alias p='python3'
 #------# PACKAGE MANAGER #------#
 
 alias sup='sudo apt update'
-alias supg='sup && sudo apt upgrade'
+#alias supg='sup && sudo apt upgrade'
+alias supg='tmux new-session -s apt_update "exec zsh -ic \"updates\""'
 
 alias pcyu='sudo pacman -Syyu'
 alias pac='sudo pacman -S'
@@ -535,20 +625,20 @@ set_welcome_print() {
 
 print_welcome() {
     if [[ $USER == "anamata" ]]; then 
-	awelcome
+	    awelcome
     else
     	if [ -f $HOME/.config/print ]; then
     		if [[ $(cat $HOME/.config/print) == "0" ]]; then
 	   			return;
-			fi
+			  fi
     	fi
     	if [[ $COLUMNS -le $(get_print_width -s) ]]; then
-			nwelcome;
+			  nwelcome;
     	elif [[ $COLUMNS -le $(get_print_width) ]]; then
-			welcome-small;
-		else 
-			welcome;
-		fi
+		  	welcome-small;
+		  else 
+			  welcome;
+		  fi
     fi
 }
 
@@ -561,6 +651,7 @@ print_welcome() {
 alias cl='clear && print_welcome'
 alias cle='clear'
 alias cln='clear && neofetch'
+alias clp='clear && pfetch'
 alias rc='clear && source $SHELLRC'
 alias rf='source $SHELLRC'
 
@@ -590,6 +681,7 @@ hgrep () {
 
 alias hs='history 1 | grep'
 alias hsi='history 1 | grep -i'
+alias vhis='v ~/.zsh_history'
 
 HISTCONTROL='ignoredups'
 
@@ -606,6 +698,7 @@ alias gdm-banner='v /etc/dconf/db/gdm.d/01-banner-message'
 alias beep-off='xset b off'
 
 alias pipes_sh='pipes.sh -t 3 -p 4 -r 0'
+alias pipes-sh='pipes -t 3 -p 4 -r 0'
 
 alias start_waybar='waybar &>/dev/null'
 alias reload_waybar='pkill -SIGUSR2 waybar'
@@ -615,9 +708,31 @@ alias restart='pkill $1 && $1'
 
 #----------------------------#
 
+#------# GAMES #------#
+
+alias protontricks='flatpak run com.github.Matoking.protontricks'
+alias protontricks-launch='flatpak run --command=protontricks-launch com.github.Matoking.protontricks'
+
+function find_steam_game_id() {
+    find $HOME/snap/steam/common/.local/share/Steam/steamapps/ -maxdepth 1 -type f -name '*.acf' -exec awk -F '"' '/"appid|name/{ printf $4 "|" } END { print "" }' {} \; | column -t -s '|' | sort -k 2 | grep -i $1;
+}
+
+function run_steam_game() {
+  GAME_ID=$(find_steam_game_id $1);
+  #steam steam://rungameid/$GAME_ID
+  steam -applaunch $GAME_ID
+}
+
+alias speedrunners='steam -applaunch 207140'
+
+alias nvsmi='nvidia-smi'
+
+#----------------------------#
+
 
 
 #------# STARTUP COMMANDS #------#
+shopt -s expand_aliases
 
 find_shellrc
 find_aliases

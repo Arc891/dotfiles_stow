@@ -127,3 +127,4 @@ fi
 . "$HOME/.cargo/env"
 
 eval "$(starship init bash)"
+. "/home/ezrah/.deno/env"

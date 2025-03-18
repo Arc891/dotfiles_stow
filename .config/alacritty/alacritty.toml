@@ -1,5 +1,10 @@
 [window]
-opacity = 0.8
+opacity = 0.95
+decorations = "none"
+
+  [window.padding]
+  x = 2 
+  y = 2 
 
 [colors.primary]
 background = "#1e1e2e"
