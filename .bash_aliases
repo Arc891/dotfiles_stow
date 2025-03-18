@@ -23,6 +23,7 @@ SHELLRC=""
 
 alias nix_search='f(){ xdg-open "https://search.nixos.org/packages?channel=23.11&from=0&size=50&sort=relevance&type=packages&query=$1"; unset -f f; }; f'
 alias nix-shell='nix-shell --run zsh'
+alias nix-generatons='nixos-rebuild list-generations'
 
 #----------------------------#
 
@@ -225,7 +226,7 @@ wifi_connect() {
 alias wls='nmcli dev wifi list'
 alias wlsc='wls && wifi_connect'
 alias myip='curl ifconfig.me && printf "\n"'
-alias myipl="ifconfig wlp4s0 | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'"
+alias myipl="ifconfig $(ifconfig | grep wlp | awk -F':' '{print $1}') | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'"
 
 myips() {
 	printf "Global ip: ";
